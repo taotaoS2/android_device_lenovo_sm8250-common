@@ -1,4 +1,4 @@
-# Common device tree for Motorola SM8250 devices
+# Common device tree for Lenovo SM8250 devices
 
 ```
 #

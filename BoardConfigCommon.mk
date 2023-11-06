@@ -16,9 +16,9 @@
 
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
-BOARD_VENDOR := motorola
+BOARD_VENDOR := lenovo
 
-COMMON_PATH := device/motorola/sm8250-common
+COMMON_PATH := device/lenovo/sm8250-common
 
 # Architecture
 TARGET_ARCH := arm64
@@ -35,33 +35,18 @@ TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := generic
 TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a76
 
-# A/B
-AB_OTA_UPDATER := true
-
-AB_OTA_PARTITIONS += \
-    boot \
-    vendor_boot \
-    dtbo \
-    odm \
-    product \
-    system \
-    system_ext \
-    vendor \
-    vbmeta \
-    vbmeta_system
-
 # Bootloader
 TARGET_NO_BOOTLOADER := true
 
 # Kernel
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom androidboot.console=ttyMSM0 androidboot.memcg=1 lpm_levels.sleep_disabled=1 video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 service_locator.enable=1 androidboot.usbcontroller=a600000.dwc3 swiotlb=2048 loop.max_part=7 cgroup.memory=nokmem,nosocket
-#BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_IMAGE_NAME := Image
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_SEPARATED_DTBO := true
 TARGET_KERNEL_ARCH := arm64
-TARGET_KERNEL_SOURCE := kernel/motorola/sm8250
+TARGET_KERNEL_SOURCE := kernel/lenovo/sm8250
 
 # Kernel modules - Audio
 TARGET_MODULE_ALIASES += \
@@ -206,7 +191,7 @@ TARGET_SYSTEM_PROP += $(COMMON_PATH)/system.prop
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 BOARD_INCLUDE_RECOVERY_DTBO := true
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
-TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/rootdir/etc/fstab.qcom
+TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/rootdir/etc/fstab.default
 
 # RIL
 ENABLE_VENDOR_RIL_SERVICE := true
@@ -246,4 +231,4 @@ WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # Inherit from the proprietary version
--include vendor/motorola/sm8250-common/BoardConfigVendor.mk
+-include vendor/lenovo/sm8250-common/BoardConfigVendor.mk
